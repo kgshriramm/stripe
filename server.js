@@ -71,6 +71,7 @@ app.use(express.json());
 
 app.post('/create-checkout-session', async (req, res) => {
     try {
+        const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: [
@@ -86,8 +87,8 @@ app.post('/create-checkout-session', async (req, res) => {
                 },
             ],
             mode: 'payment',
-            success_url: 'http://localhost:3000/success.html',
-            cancel_url: 'http://localhost:3000/cancel.html',
+            success_url: `${baseUrl}/success.html`,
+            cancel_url: `${baseUrl}/cancel.html`,
             metadata: {
                 course_id: 'course_123'
             }
