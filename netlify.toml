@@ -1,0 +1,28 @@
+[build]
+  functions = "functions"
+
+[[redirects]]
+  from = "/create-checkout-session"
+  to = "/.netlify/functions/api/create-checkout-session"
+  status = 200
+
+[[redirects]]
+  from = "/webhook"
+  to = "/.netlify/functions/api/webhook"
+  status = 200
+
+[[redirects]]
+  from = "/success.html"
+  to = "/.netlify/functions/api/success.html"
+  status = 200
+
+[[redirects]]
+  from = "/cancel.html"
+  to = "/.netlify/functions/api/cancel.html"
+  status = 200
+  
+# Optional: redirect all other API calls if you add more
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200

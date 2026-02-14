@@ -1,9 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./db');
-require('dotenv').config();
 
 const app = express();
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -115,4 +115,8 @@ app.get('/cancel.html', (req, res) => {
 });
 
 const PORT = 3000;
-app.listen(PORT, () => console.log(`Running on port ${PORT}`));
+if (require.main === module) {
+    app.listen(PORT, () => console.log(`Running on port ${PORT}`));
+}
+
+module.exports = app;

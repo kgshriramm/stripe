@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +14,15 @@
             height: 100vh;
             background-color: #f0f2f5;
         }
+
         .container {
             text-align: center;
             background: white;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         button {
             background-color: #6772e5;
             color: white;
@@ -30,11 +33,13 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         button:hover {
             background-color: #5469d4;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Amazing Course</h1>
@@ -46,7 +51,7 @@
         const button = document.getElementById('buy-button');
         button.addEventListener('click', async () => {
             try {
-                const response = await fetch('http://localhost:3000/create-checkout-session', {
+                const response = await fetch('/create-checkout-session', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -66,4 +71,5 @@
         });
     </script>
 </body>
+
 </html>
